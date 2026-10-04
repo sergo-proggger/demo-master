@@ -4,121 +4,95 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Руслан: отделочные работы, грузоперевозки, мастер на час · Тюмень</title>
+<title>Руслан: все услуги разом сразу · Тюмень</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Oswald:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root { --bg: #0E0E0E; --bg-2: #181818; --line: #2A2A2A; --y: #FFC800; --y-dark: #E0AF00; --text: #F4F4F4; --muted: #A8A8A8; }
+  :root { --bg: #0B0B0B; --y: #FFC800; --y-dark: #E0AF00; --text: #F5F5F5; --muted: #9A9A9A; }
   * { box-sizing: border-box; }
   [hidden] { display: none !important; }
-  body { margin: 0; min-height: 100vh; background: var(--bg); color: var(--text); font: 400 17px/1.5 "Inter", Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-  a { color: inherit; text-decoration: none; }
-  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 18px; }
-  .disp { font-family: "Russo One", "Arial Black", sans-serif; text-transform: uppercase; }
-  .y { color: var(--y); }
-
-  .top { position: sticky; top: 0; z-index: 10; background: rgba(14,14,14,.94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
-  .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 60px; }
-  .brand { font: 400 21px/1 "Russo One", sans-serif; }
-  .brand span { color: var(--y); }
-  .top-phone { font: 700 19px/1 "Oswald", sans-serif; letter-spacing: .03em; color: var(--y); }
-
-  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 56px; padding: 0 24px; border-radius: 12px; font: 700 18px/1 "Oswald", sans-serif; letter-spacing: .04em; text-transform: uppercase; cursor: pointer; border: 0; }
-  .btn-call { background: var(--y); color: #111; box-shadow: 0 6px 0 var(--y-dark); }
-  .btn-line { background: transparent; color: var(--text); border: 2px solid #555; }
-  .ico { width: 22px; height: 22px; flex: none; }
-
-  /* ===== ГЛАВНАЯ: выбор услуги ===== */
-  .home { padding: 28px 0 40px; }
-  .home-head { margin-bottom: 22px; }
-  .home-kicker { display: inline-block; padding: 5px 10px; background: var(--y); color: #111; font: 700 14px/1 "Oswald", sans-serif; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px; }
-  .home h1 { margin: 0; font-size: clamp(30px, 5vw, 58px); line-height: 1; }
-  .home-sub { margin: 12px 0 0; color: var(--muted); }
-  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .tile { position: relative; display: flex; flex-direction: column; justify-content: space-between; gap: 22px; min-height: 340px; padding: 24px; border-radius: 20px; background: var(--bg-2); border: 2px solid var(--line); overflow: hidden; transition: transform .2s, border-color .2s; }
-  .tile::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent 0 18px, rgba(255,200,0,.05) 18px 36px); }
-  .tile > * { position: relative; }
-  .tile:hover { transform: translateY(-4px); border-color: var(--y); }
-  .tile svg { width: 76px; height: 76px; }
-  .tile h2 { margin: 0; font: 400 clamp(26px, 2.8vw, 34px)/1 "Russo One", sans-serif; text-transform: uppercase; }
-  .tile p { margin: 8px 0 0; color: var(--muted); font-size: 15.5px; }
-  .tile-go { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px dashed #3a3a3a; font: 700 17px/1 "Oswald", sans-serif; letter-spacing: .05em; text-transform: uppercase; color: var(--y); }
-  .tile-go b { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--y); color: #111; font-size: 22px; }
-  .tile.is-main { background: var(--y); color: #111; border-color: var(--y); }
-  .tile.is-main::before { background: repeating-linear-gradient(-45deg, transparent 0 18px, rgba(0,0,0,.05) 18px 36px); }
-  .tile.is-main p { color: #3a3000; }
-  .tile.is-main .tile-go { color: #111; border-top-color: rgba(0,0,0,.25); }
-  .tile.is-main .tile-go b { background: #111; color: var(--y); }
-  .home-call { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; margin-top: 18px; padding: 18px 22px; border-radius: 16px; border: 2px dashed var(--y); }
-  .home-call p { margin: 0; color: var(--muted); }
-  .home-call a.num { font: 700 30px/1 "Oswald", sans-serif; color: var(--y); letter-spacing: .02em; }
-
-  /* ===== ЭКРАН УСЛУГИ ===== */
-  .svc { padding: 0 0 40px; animation: slide .35s ease both; }
-  @keyframes slide { from { opacity: 0; transform: translateX(24px); } }
-  .back { display: inline-flex; align-items: center; gap: 8px; margin: 18px 0; color: var(--muted); font-weight: 500; }
-  .back:hover { color: var(--y); }
-  .svc-hero { position: relative; overflow: hidden; border-radius: 22px; background: var(--y); color: #111; padding: 26px; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: end; }
-  .svc-hero::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, transparent 0 18px, rgba(0,0,0,.05) 18px 36px); }
-  .svc-hero > * { position: relative; }
-  .svc-hero h1 { margin: 0; font: 400 clamp(30px, 5vw, 56px)/1 "Russo One", sans-serif; text-transform: uppercase; }
-  .svc-hero p { margin: 10px 0 0; font-weight: 500; max-width: 46ch; }
-  .svc-hero svg { width: 96px; height: 96px; }
-  .contact { display: grid; grid-template-columns: 1.1fr 1fr; gap: 16px; margin-top: 16px; }
-  .contact-box { background: var(--bg-2); border: 2px solid var(--line); border-radius: 20px; padding: 22px; }
-  .contact-box .lbl { color: var(--muted); font-size: 14px; text-transform: uppercase; letter-spacing: .06em; }
-  .contact-box .num { display: block; margin: 6px 0 16px; font: 700 clamp(34px, 4.6vw, 48px)/1 "Oswald", sans-serif; color: var(--y); letter-spacing: .02em; }
-  .contact-box .btn { width: 100%; }
-  .socials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 12px; }
-  .soc { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-height: 76px; border-radius: 14px; background: var(--bg); border: 2px solid var(--line); font-weight: 600; font-size: 14px; }
-  .soc svg { width: 26px; height: 26px; }
-  .soc:hover { border-color: var(--y); }
-  .note { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
-  .list h2, .photos h2 { margin: 0 0 14px; font: 400 22px/1.1 "Russo One", sans-serif; text-transform: uppercase; }
-  .list ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
-  .list li { position: relative; padding-left: 24px; }
-  .list li::before { content: ""; position: absolute; left: 2px; top: .5em; width: 10px; height: 10px; background: var(--y); transform: rotate(45deg); }
-  .list .price { margin-top: 18px; padding-top: 14px; border-top: 1px dashed #3a3a3a; color: var(--muted); }
-  .list .price b { color: var(--text); }
-  .photos { margin-top: 16px; }
-  .ph-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-  .ph { aspect-ratio: 1; border-radius: 14px; border: 2px dashed #3a3a3a; display: grid; place-items: center; text-align: center; color: #6c6c6c; font-size: 13px; padding: 8px; background: repeating-linear-gradient(-45deg, #141414 0 10px, #171717 10px 20px); }
-  .others { margin-top: 22px; }
-  .others h2 { margin: 0 0 12px; font: 400 18px/1.1 "Russo One", sans-serif; text-transform: uppercase; color: var(--muted); }
-  .others-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .others-row a { display: flex; justify-content: space-between; align-items: center; padding: 16px 18px; border-radius: 14px; background: var(--bg-2); border: 2px solid var(--line); font: 700 17px/1.1 "Oswald", sans-serif; text-transform: uppercase; letter-spacing: .03em; }
-  .others-row a:hover { border-color: var(--y); }
-  .others-row a span { color: var(--y); }
-
-  .foot { border-top: 1px solid var(--line); padding: 18px 0 100px; color: var(--muted); font-size: 14px; }
-  .callbar { display: none; }
-  .draft { position: fixed; right: 12px; top: 70px; z-index: 20; background: #fff; color: #111; font: 600 12px/1 "Inter", sans-serif; padding: 6px 10px; border-radius: 6px; opacity: .85; }
-
-  @media (max-width: 900px) {
-    .tiles { grid-template-columns: 1fr; }
-    .tile { min-height: 0; flex-direction: row; align-items: center; gap: 16px; padding: 20px; }
-    .tile svg { width: 52px; height: 52px; flex: none; }
-    .tile .t-text { flex: 1; min-width: 0; }
-    .tile-go { border: 0; padding: 0; }
-    .tile-go span { display: none; }
-    .contact { grid-template-columns: 1fr; }
-    .ph-grid { grid-template-columns: repeat(2, 1fr); }
+  html, body { height: 100%; }
+  body {
+    margin: 0; min-height: 100vh; color: var(--text);
+    font: 400 17px/1.5 "Inter", Arial, sans-serif; -webkit-font-smoothing: antialiased;
+    background: radial-gradient(120% 80% at 50% 0%, #1c1c1c 0%, var(--bg) 60%) fixed;
   }
+  body::before { /* лёгкая фактура, как на визитках */
+    content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .5;
+    background: repeating-linear-gradient(-45deg, transparent 0 22px, rgba(255,200,0,.035) 22px 44px);
+  }
+  a { color: inherit; text-decoration: none; }
+  .disp { font-family: "Russo One", "Arial Black", sans-serif; text-transform: uppercase; }
+
+  .page { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 20px; }
+
+  /* ===== ГЛАВНАЯ ===== */
+  .home { flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: clamp(28px, 6vh, 56px); padding: 48px 0 120px; width: 100%; }
+  .slogan { margin: 0; color: var(--y); font-size: clamp(30px, 6vw, 64px); line-height: 1.02; letter-spacing: .01em; }
+  .slogan span { display: block; }
+  .menu { display: flex; flex-direction: column; gap: clamp(14px, 3.4vh, 28px); }
+  .menu a {
+    display: inline-block; color: var(--text);
+    font: 400 clamp(26px, 5vw, 52px)/1 "Russo One", sans-serif; text-transform: uppercase; letter-spacing: .01em;
+    transition: color .2s, transform .2s;
+  }
+  .menu a:hover, .menu a:focus-visible { color: var(--y); transform: scale(1.04); outline: none; }
+  .menu a:active { color: var(--y); }
+  .home-phone { display: grid; gap: 6px; }
+  .home-phone small { color: var(--muted); font-size: 14px; letter-spacing: .06em; text-transform: uppercase; }
+  .home-phone a { font: 700 clamp(28px, 4vw, 40px)/1 "Oswald", sans-serif; color: var(--y); letter-spacing: .03em; }
+  .city { position: absolute; top: 18px; left: 0; right: 0; color: var(--muted); font: 500 14px/1 "Oswald", sans-serif; letter-spacing: .3em; text-transform: uppercase; }
+
+  /* ===== СТРАНИЦА УСЛУГИ ===== */
+  .svc { flex: 1; width: 100%; max-width: 760px; padding: 64px 0 130px; animation: show .35s ease both; }
+  @keyframes show { from { opacity: 0; transform: translateY(14px); } }
+  .back { position: absolute; top: 14px; left: 16px; color: var(--muted); font: 500 16px/1 "Inter", sans-serif; padding: 8px 4px; }
+  .back:hover { color: var(--y); }
+  .svc h1 { margin: 0; color: var(--y); font-size: clamp(32px, 7vw, 66px); line-height: 1; }
+  .svc-lead { margin: 16px auto 0; max-width: 34ch; font-size: 18px; color: #DDD; }
+  .svc-phone { display: block; margin: 34px 0 16px; font: 700 clamp(40px, 9vw, 64px)/1 "Oswald", sans-serif; color: var(--text); letter-spacing: .02em; }
+  .btn-call {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 60px; padding: 0 34px; border-radius: 14px; background: var(--y); color: #111;
+    font: 700 20px/1 "Oswald", sans-serif; letter-spacing: .05em; text-transform: uppercase;
+    box-shadow: 0 6px 0 var(--y-dark);
+  }
+  .btn-call svg { width: 22px; height: 22px; }
+  .socials { display: flex; justify-content: center; gap: 28px; margin-top: 28px; }
+  .socials a { display: grid; justify-items: center; gap: 6px; color: var(--muted); font-size: 14px; }
+  .socials a:hover { color: var(--text); }
+  .socials svg { width: 40px; height: 40px; }
+  .note { margin: 12px 0 0; color: #6d6d6d; font-size: 13px; }
+
+  .what { margin-top: 56px; }
+  .what h2, .others h2 { margin: 0 0 18px; color: var(--y); font: 400 22px/1 "Russo One", sans-serif; text-transform: uppercase; letter-spacing: .04em; }
+  .what ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; font-size: 19px; }
+  .what li::before { content: "— "; color: var(--y); }
+  .price { margin-top: 18px; color: var(--muted); }
+
+  .photos { margin-top: 56px; }
+  .photos h2 { margin: 0 0 16px; color: var(--y); font: 400 22px/1 "Russo One", sans-serif; text-transform: uppercase; }
+  .ph-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .ph { aspect-ratio: 1; display: grid; place-items: center; color: #5d5d5d; font-size: 13px; background: #151515; }
+
+  .others { margin-top: 56px; }
+  .others nav { display: flex; flex-direction: column; gap: 14px; }
+  .others a { font: 400 clamp(20px, 4vw, 28px)/1.1 "Russo One", sans-serif; text-transform: uppercase; color: var(--text); }
+  .others a:hover { color: var(--y); }
+
+  .callbar { display: none; }
+  .draft { position: fixed; right: 12px; top: 12px; z-index: 20; background: #fff; color: #111; font: 600 12px/1 "Inter", sans-serif; padding: 6px 10px; border-radius: 6px; opacity: .85; }
+
   @media (max-width: 600px) {
-    .top-phone { font-size: 17px; }
-    .home h1 { font-size: 8.4vw; }
-    .tile h2 { font-size: 19px; }
-    .tile p { font-size: 14px; margin-top: 4px; }
-    .tile-go b { width: 40px; height: 40px; }
-    .home-call .btn { width: 100%; }
-    .svc-hero { padding: 20px; grid-template-columns: 1fr; }
-    .svc-hero [data-icon] { display: none; }
-    .svc-hero h1 { font-size: 8.6vw; }
-    .others-row { grid-template-columns: 1fr; }
-    .callbar { display: grid; grid-template-columns: 1fr auto; gap: 8px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(14,14,14,.96); border-top: 2px solid var(--y); }
-    .callbar .btn { min-height: 54px; box-shadow: none; }
-    .callbar .btn-line { padding: 0 16px; }
+    .slogan { font-size: 10.4vw; }
+    .menu a { font-size: 8.2vw; }
+    .svc h1 { font-size: 9.6vw; }
+    .what ul { font-size: 17px; }
+    .socials { gap: 22px; }
+    .callbar { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(11,11,11,.95); }
+    .callbar .btn-call { width: 100%; box-shadow: none; min-height: 56px; }
+    .draft { top: auto; bottom: 86px; }
   }
 </style>
 </head>
@@ -126,112 +100,88 @@
 
 <div class="draft">Демо-дизайн</div>
 
-<header class="top">
-  <div class="wrap">
-    <a class="brand" href="#">Руслан<span>.</span>Мастер</a>
-    <a class="top-phone" href="tel:+79199360885">8 919 936-08-85</a>
-  </div>
-</header>
-
-<main class="wrap">
+<div class="page">
 
   <!-- ===== ГЛАВНАЯ ===== -->
   <section class="home" id="home">
-    <div class="home-head">
-      <span class="home-kicker">Тюмень</span>
-      <h1 class="disp">Какая услуга <span class="y">нужна?</span></h1>
-      <p class="home-sub">Нажмите на услугу: там номер, мессенджеры и всё, что делаем.</p>
-    </div>
-    <div class="tiles">
-      <a class="tile is-main" href="#otdelka">
-        <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="40" height="14" rx="2"/><path d="M48 15h6v14H30v8"/><rect x="25" y="37" width="10" height="20" rx="2"/></svg>
-        <div class="t-text"><h2>Отделочные работы</h2><p>Ремонт квартир частично и под ключ</p></div>
-        <div class="tile-go"><span>Подробнее</span><b>→</b></div>
-      </a>
-      <a class="tile" href="#gruz">
-        <svg viewBox="0 0 64 64" fill="none" stroke="#FFC800" stroke-width="3.5" stroke-linejoin="round" aria-hidden="true"><path d="M4 16h34v28H4zM38 26h12l10 10v8H38z"/><circle cx="16" cy="48" r="5"/><circle cx="48" cy="48" r="5"/></svg>
-        <div class="t-text"><h2>Грузоперевозки</h2><p>Переезды, доставка, вывоз мусора, грузчики</p></div>
-        <div class="tile-go"><span>Подробнее</span><b>→</b></div>
-      </a>
-      <a class="tile" href="#master">
-        <svg viewBox="0 0 64 64" fill="none" stroke="#FFC800" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M40 8a12 12 0 0 0-11 16L8 45a5 5 0 0 0 7 7l21-21a12 12 0 0 0 16-11l-7 7-6-1-1-6z"/></svg>
-        <div class="t-text"><h2>Мастер на час</h2><p>Электрика, сантехника, сборка мебели</p></div>
-        <div class="tile-go"><span>Подробнее</span><b>→</b></div>
-      </a>
-    </div>
-    <div class="home-call">
-      <div><p>Не знаете, что выбрать? Просто позвоните</p><a class="num" href="tel:+79199360885">8 919 936-08-85</a></div>
-      <a class="btn btn-call" href="tel:+79199360885">Позвонить</a>
+    <span class="city">Тюмень</span>
+    <h1 class="slogan disp"><span>Все услуги</span><span>разом сразу</span></h1>
+    <nav class="menu" aria-label="Услуги">
+      <a href="#gruz">Грузоперевозки</a>
+      <a href="#master">Мастера на час</a>
+      <a href="#otdelka">Отделочные работы</a>
+    </nav>
+    <div class="home-phone">
+      <small>Или сразу звоните</small>
+      <a href="tel:+79199360885">8 919 936-08-85</a>
     </div>
   </section>
 
-  <!-- ===== ЭКРАН УСЛУГИ (заполняется скриптом) ===== -->
+  <!-- ===== СТРАНИЦА УСЛУГИ ===== -->
   <section class="svc" id="svc" hidden>
     <a class="back" href="#">← Все услуги</a>
-    <div class="svc-hero">
-      <div><h1 data-title></h1><p data-lead></p></div>
-      <span data-icon></span>
+    <h1 class="disp" data-title></h1>
+    <p class="svc-lead" data-lead></p>
+
+    <a class="svc-phone" href="tel:+79199360885">8 919 936-08-85</a>
+    <a class="btn-call" href="tel:+79199360885" data-cta>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>
+      <span>Позвонить</span>
+    </a>
+
+    <div class="socials">
+      <a href="https://wa.me/79199360885"><svg viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 .9c.3.1.5.2.5.4.1.2.1.8-.1 1.4z"/></svg>WhatsApp</a>
+      <a href="#"><svg viewBox="0 0 24 24" fill="#2AABEE" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.1l-4.7-1.5c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg>Telegram</a>
+      <a href="#"><svg viewBox="0 0 24 24" fill="#0077FF" aria-hidden="true"><path d="M12.8 18c-6.5 0-10.2-4.5-10.4-12h3.3c.1 5.5 2.5 7.8 4.4 8.3V6h3.1v4.7c1.9-.2 3.8-2.4 4.5-4.7h3.1c-.5 2.9-2.7 5.1-4.2 6 1.5.7 4 2.6 4.9 6h-3.4c-.7-2.3-2.6-4.1-4.9-4.3V18z"/></svg>ВКонтакте</a>
     </div>
-    <div class="contact">
-      <div class="contact-box">
-        <span class="lbl">Звоните, отвечаю сам</span>
-        <a class="num" href="tel:+79199360885">8 919 936-08-85</a>
-        <a class="btn btn-call" href="tel:+79199360885" data-cta>Позвонить</a>
-        <div class="socials">
-          <a class="soc" href="https://wa.me/79199360885"><svg viewBox="0 0 24 24" fill="#25D366" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.5 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1.1c.2-.3.4-.2.7-.1l2 .9c.3.1.5.2.5.4.1.2.1.8-.1 1.4z"/></svg>WhatsApp</a>
-          <a class="soc" href="#"><svg viewBox="0 0 24 24" fill="#2AABEE" aria-hidden="true"><path d="M21.9 4.3 18.7 19.4c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.1l-4.7-1.5c-1-.3-1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg>Telegram</a>
-          <a class="soc" href="#"><svg viewBox="0 0 24 24" fill="#0077FF" aria-hidden="true"><path d="M12.8 18c-6.5 0-10.2-4.5-10.4-12h3.3c.1 5.5 2.5 7.8 4.4 8.3V6h3.1v4.7c1.9-.2 3.8-2.4 4.5-4.7h3.1c-.5 2.9-2.7 5.1-4.2 6 1.5.7 4 2.6 4.9 6h-3.4c-.7-2.3-2.6-4.1-4.9-4.3V18z"/></svg>ВКонтакте</a>
-        </div>
-        <p class="note">Ссылки на Telegram и ВК подставим Ваши.</p>
-      </div>
-      <div class="contact-box list">
-        <h2>Что делаем</h2>
-        <ul data-list></ul>
-        <p class="price" data-price></p>
-      </div>
+    <p class="note">Ссылки на Telegram и ВК подставим Ваши</p>
+
+    <div class="what">
+      <h2>Что делаем</h2>
+      <ul data-list></ul>
+      <p class="price" data-price></p>
     </div>
-    <div class="photos contact-box">
+
+    <div class="photos">
       <h2>Фото работ</h2>
-      <div class="ph-grid"><div class="ph">Здесь будут Ваши фото</div><div class="ph">Фото работ</div><div class="ph">Фото работ</div><div class="ph">Фото работ</div></div>
+      <div class="ph-row"><div class="ph">Ваше фото</div><div class="ph">Ваше фото</div><div class="ph">Ваше фото</div></div>
     </div>
+
     <div class="others">
       <h2>Другие услуги</h2>
-      <div class="others-row" data-others></div>
+      <nav data-others></nav>
     </div>
   </section>
 
-</main>
-
-<footer class="foot"><div class="wrap">Руслан · Тюмень · Отделочные работы · Грузоперевозки · Мастер на час</div></footer>
+</div>
 
 <div class="callbar">
-  <a class="btn btn-call" href="tel:+79199360885"><svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>Позвонить</a>
-  <a class="btn btn-line" href="https://wa.me/79199360885" aria-label="WhatsApp">WA</a>
+  <a class="btn-call" href="tel:+79199360885">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>
+    Позвонить
+  </a>
 </div>
 
 <script>
 (function () {
   var S = {
-    otdelka: {
-      title: 'Отделочные работы', lead: 'Ремонт квартир частично и под ключ, от пола до потолка. Также мебель на заказ.',
-      cta: 'Вызвать на замер',
-      list: ['Частичный ремонт', 'Ремонт под ключ', 'Полы, стены, потолки', 'Покраска и обои', 'Плитка в ванной и на кухне', 'Мебель на заказ: кухни, прихожие, гардеробные'],
-      price: 'Цены и сроки: <b>подставим Ваши</b>',
-      icon: '<svg viewBox="0 0 64 64" fill="none" stroke="#111" stroke-width="3.5" stroke-linejoin="round"><rect x="8" y="8" width="40" height="14" rx="2"/><path d="M48 15h6v14H30v8"/><rect x="25" y="37" width="10" height="20" rx="2"/></svg>'
-    },
     gruz: {
       title: 'Грузоперевозки', lead: 'Квартирные и офисные переезды, доставка, вывоз мусора. Газели от стандартной до 6 метров.',
       cta: 'Заказать машину',
-      list: ['Квартирные переезды', 'Офисные переезды', 'Доставка мебели и техники', 'Вывоз строительного мусора', 'Газели от стандартной до 6 метров', 'Грузчики на погрузку и подъём'],
-      price: 'Цена: <b>от … ₽ в час</b>, подставим Вашу',
-      icon: '<svg viewBox="0 0 64 64" fill="none" stroke="#111" stroke-width="3.5" stroke-linejoin="round"><path d="M4 16h34v28H4zM38 26h12l10 10v8H38z"/><circle cx="16" cy="48" r="5"/><circle cx="48" cy="48" r="5"/></svg>'
+      list: ['Квартирные переезды', 'Офисные переезды', 'Доставка мебели и техники', 'Вывоз строительного мусора', 'Газели от стандартной до 6 метров', 'Грузчики'],
+      price: 'Цены подставим Ваши'
     },
     master: {
-      title: 'Мастер на час', lead: 'Электрика, установка техники, сантехника, сборка мебели и мелкий ремонт.',
+      title: 'Мастера на час', lead: 'Электрика, установка техники, сантехника, сборка мебели и мелкий ремонт.',
       cta: 'Вызвать мастера',
-      list: ['Электрика: розетки, свет, автоматы', 'Установка и подключение техники', 'Сантехника: смесители, унитазы', 'Сборка и ремонт мебели', 'Повесить полки, карнизы, телевизор', 'Мелкий ремонт по дому'],
-      price: 'Цена: <b>от … ₽ за выезд</b>, подставим Вашу',
-      icon: '<svg viewBox="0 0 64 64" fill="none" stroke="#111" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M40 8a12 12 0 0 0-11 16L8 45a5 5 0 0 0 7 7l21-21a12 12 0 0 0 16-11l-7 7-6-1-1-6z"/></svg>'
+      list: ['Электрика', 'Установка техники', 'Сантехника', 'Сборка мебели', 'Мелкий ремонт'],
+      price: 'Цены подставим Ваши'
+    },
+    otdelka: {
+      title: 'Отделочные работы', lead: 'Ремонт квартир частично и под ключ, от пола до потолка. Мебель на заказ.',
+      cta: 'Вызвать на замер',
+      list: ['Частичный ремонт', 'Ремонт под ключ', 'Полы, стены, потолки', 'Плитка, покраска, обои', 'Мебель на заказ: кухни, прихожие, гардеробные'],
+      price: 'Цены подставим Ваши'
     }
   };
   var home = document.getElementById('home'), svc = document.getElementById('svc');
@@ -241,12 +191,11 @@
     if (!d) { svc.hidden = true; home.hidden = false; return; }
     q('[data-title]').textContent = d.title;
     q('[data-lead]').textContent = d.lead;
-    q('[data-icon]').innerHTML = d.icon;
-    q('[data-cta]').textContent = d.cta;
+    q('[data-cta] span').textContent = d.cta;
     q('[data-list]').innerHTML = d.list.map(function (x) { return '<li>' + x + '</li>'; }).join('');
-    q('[data-price]').innerHTML = d.price;
+    q('[data-price]').textContent = d.price;
     q('[data-others]').innerHTML = Object.keys(S).filter(function (k) { return k !== id; })
-      .map(function (k) { return '<a href="#' + k + '">' + S[k].title + ' <span>→</span></a>'; }).join('');
+      .map(function (k) { return '<a href="#' + k + '">' + S[k].title + '</a>'; }).join('');
     home.hidden = true; svc.hidden = false;
     svc.style.animation = 'none'; void svc.offsetWidth; svc.style.animation = '';
     window.scrollTo(0, 0);
